@@ -1,5 +1,5 @@
 import logoLarge from "/assets/images/logo-devlinks-large.svg";
-import link from "/assets/images/icon-link.svg";
+import link from "/assets/images/icon-links-header.svg";
 import profile from "/assets/images/icon-profile-details-header.svg";
 const AccountNav = () => {
   return (
