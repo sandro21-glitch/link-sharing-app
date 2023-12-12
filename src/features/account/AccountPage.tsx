@@ -1,14 +1,11 @@
-import AddedLinks from "./addedLinks/AddedLinks";
-import CustomizeLinks from "./customizeLinks/CustomizeLinks";
+// import LinksPage from "./LinksPage";
+import ProfilePage from "./ProfilePage";
+
 const AccountPage = () => {
   return (
     <section>
-      <div className="flex gap-5">
-        {/* added links */}
-        <AddedLinks />
-        {/* customize links */}
-        <CustomizeLinks />
-      </div>
+      {/* <LinksPage /> */}
+      <ProfilePage />
     </section>
   );
 };
