@@ -4,7 +4,7 @@ import SaveBtn from "./SaveBtn";
 import SingleLink from "./SingleLink";
 const CustomizeLinks = () => {
   return (
-    <form className="bg-white flex-1 rounded-[12px]">
+    <form className="bg-white flex-1 rounded-[12px] h-full">
       <h1 className="text-[2rem] font-semibold normal-case pt-10 px-10 mb-5">
         Customize your links
       </h1>
@@ -12,15 +12,15 @@ const CustomizeLinks = () => {
         Add/edit/remove links below and then share all your profiles with the
         world
       </p>
-      <div className="px-10">
+      <div className="px-10 min-h-[500px]">
         {/* add new link btn */}
         <AddNewLink />
         <SingleLink />
         {/* empty links */}
         {/* <EmptyLinks /> */}
-        {/* save btn */}
-        <SaveBtn />
       </div>
+      {/* save btn */}
+      <SaveBtn />
     </form>
   );
 };
