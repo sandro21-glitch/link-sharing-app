@@ -43,7 +43,7 @@ h5 {
 p {
   color: var(--primary-p);
   font-weight: 300;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 @media screen and (min-width: 800px) {
@@ -72,7 +72,9 @@ p {
     line-height: 1;
   }
 }
-
+li {
+  list-style: none;
+}
 @layer utilities {
   .flex-center {
     display: flex;
