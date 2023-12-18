@@ -1,14 +1,11 @@
-import { useOutletContext } from "react-router-dom";
 import LinksPage from "./LinksPage";
-// import ProfilePage from "./ProfilePage";
-
-const AccountPage = () => {
-  const [currentPage:String, setCurrentPage] = useOutletContext();
+import ProfilePage from "./ProfilePage";
+type AccountTypes = {
+  currPage: string;
+};
+const AccountPage = ({ currPage }: AccountTypes) => {
   return (
-    <section>
-      <LinksPage />
-      {/* <ProfilePage /> */}
-    </section>
+    <section>{currPage === "links" ? <LinksPage /> : <ProfilePage />}</section>
   );
 };
 
