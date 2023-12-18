@@ -1,13 +1,12 @@
-import { Outlet } from "react-router-dom";
-import AccountNav from "../ui/AccountNav";
 import { useState } from "react";
+import AccountPage from "../features/account/AccountPage";
+import AccountNav from "../ui/AccountNav";
 const Account = () => {
-  const [currentPage, setCurrentPage] = useState("links");
-
+  const [currPage, setCurrPage] = useState("links");
   return (
     <main className="section-center py-[25px]">
-      <AccountNav />
-      <Outlet context={[currentPage, setCurrentPage]} />
+      <AccountNav currPage={currPage} setCurrPage={setCurrPage} />
+      <AccountPage currPage={currPage} />
     </main>
   );
 };
