@@ -1,5 +1,14 @@
-import { Dispatch, ReactNode, createContext, useReducer } from "react";
+import {
+  Dispatch,
+  ReactNode,
+  createContext,
+  useContext,
+  useReducer,
+} from "react";
 import { accountReducer } from "../reducers/accountReducer";
+import { ADD_NEW_LINK } from "../actions/accountActions";
+import { LinkType } from "../types/linksType";
+
 export interface accountStateTypes {
   links: {
     name: string;
@@ -12,6 +21,7 @@ export interface accountStateTypes {
 interface AccountContextValue {
   state: accountStateTypes;
   dispatch: Dispatch<any>;
+  addNewLink: (newLink: LinkType) => void;
 }
 const initialState: accountStateTypes = {
   links: [],
@@ -22,13 +32,26 @@ interface AccountContextProviderProps {
 
 const accountContextProvider = createContext<AccountContextValue | null>(null);
 
-const accountContext = ({ children }: AccountContextProviderProps) => {
+const AccountContext = ({ children }: AccountContextProviderProps) => {
   const [state, dispatch] = useReducer(accountReducer, initialState);
+  const addNewLink = (newLink: LinkType) => {
+    dispatch({ type: ADD_NEW_LINK, payload: newLink });
+  };
   return (
-    <accountContextProvider.Provider value={{ state, dispatch }}>
+    <accountContextProvider.Provider value={{ state, dispatch, addNewLink }}>
       {children}
     </accountContextProvider.Provider>
   );
 };
 
-export default accountContext;
+export const useAccountContext = () => {
+  const context = useContext(accountContextProvider);
+  if (!context) {
+    throw new Error(
+      "useAccountContext must be used within a accountContextProvider"
+    );
+  }
+  return context;
+};
+
+export default AccountContext;
