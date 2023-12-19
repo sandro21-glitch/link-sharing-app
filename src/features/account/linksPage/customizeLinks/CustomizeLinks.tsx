@@ -1,8 +1,11 @@
+import { useAccountContext } from "../../../../context/accountContext";
 import AddNewLink from "./AddNewLink";
 import EmptyLinks from "./EmptyLinks";
 import SaveBtn from "./SaveBtn";
-// import SingleLink from "./SingleLink";
+import SingleLink from "./SingleLink";
 const CustomizeLinks = () => {
+  const { state } = useAccountContext();
+  const links = state.links;
   return (
     <form className="bg-white flex-1 rounded-[12px] h-full">
       <h1 className="text-[2rem] font-semibold normal-case pt-10 px-10 mb-5">
@@ -15,9 +18,13 @@ const CustomizeLinks = () => {
       <div className="px-10 min-h-[500px]">
         {/* add new link btn */}
         <AddNewLink />
-        {/* <SingleLink /> */}
-        {/* empty links */}
-        <EmptyLinks />
+        {links.length < 1 ? (
+          <EmptyLinks />
+        ) : (
+          links.map((link, index) => (
+            <SingleLink key={index} link={link} />
+          ))
+        )}
       </div>
       {/* save btn */}
       <SaveBtn />
