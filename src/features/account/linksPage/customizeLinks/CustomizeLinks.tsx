@@ -1,7 +1,7 @@
 import AddNewLink from "./AddNewLink";
-// import EmptyLinks from "./EmptyLinks";
+import EmptyLinks from "./EmptyLinks";
 import SaveBtn from "./SaveBtn";
-import SingleLink from "./SingleLink";
+// import SingleLink from "./SingleLink";
 const CustomizeLinks = () => {
   return (
     <form className="bg-white flex-1 rounded-[12px] h-full">
@@ -15,9 +15,9 @@ const CustomizeLinks = () => {
       <div className="px-10 min-h-[500px]">
         {/* add new link btn */}
         <AddNewLink />
-        <SingleLink />
+        {/* <SingleLink /> */}
         {/* empty links */}
-        {/* <EmptyLinks /> */}
+        <EmptyLinks />
       </div>
       {/* save btn */}
       <SaveBtn />
