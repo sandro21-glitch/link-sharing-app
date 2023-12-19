@@ -1,10 +1,19 @@
-import temp from "/assets/images/icon-github.svg";
+// import temp from "/assets/images/icon-github.svg";
 import temp2 from "/assets/images/icon-chevron-down.svg";
 import LinksPopup from "./LinksPopup";
 import { useState } from "react";
 import SingleLinkHeader from "./SingleLinkHeader";
 import SingleLinkFooter from "./SingleLinkFooter";
-const SingleLink = () => {
+type SingleLinkTypes = {
+  link: {
+    name: string;
+    placeholderUrl: string;
+    logo: string;
+    color: string;
+    validation: RegExp;
+  };
+};
+const SingleLink = ({ link }: SingleLinkTypes) => {
   const [openPopup, setOpenPopup] = useState(false);
   return (
     <div className="bg-[#fafafa] p-[20px] rounded-md">
@@ -19,8 +28,8 @@ const SingleLink = () => {
           className="flex justify-between items-center h-[48px] bg-white py-[12px] px-[16px] border rounded-md cursor-pointer hover:border-strongPurple transition-all duration-150 ease-in"
         >
           <div className="flex items-center gap-3">
-            <img src={temp} alt="" />
-            <span className="text-darkGrey">Github</span>
+            <img src={link.logo} alt={link.name} />
+            <span className="text-darkGrey">{link.name}</span>
           </div>
           <img
             src={temp2}
