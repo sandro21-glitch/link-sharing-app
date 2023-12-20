@@ -12,12 +12,13 @@ type SingleLinkTypes = {
     color: string;
     validation: RegExp;
   };
+  index: number;
 };
-const SingleLink = ({ link }: SingleLinkTypes) => {
+const SingleLink = ({ link, index }: SingleLinkTypes) => {
   const [openPopup, setOpenPopup] = useState(false);
   return (
     <div className="bg-[#fafafa] p-[20px] rounded-md">
-      <SingleLinkHeader />
+      <SingleLinkHeader index={index} />
       {/* pltform */}
       <div className="mb-2 relative">
         <label htmlFor="" className="text-[.7rem]">
