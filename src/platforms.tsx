@@ -1,5 +1,7 @@
 import GitHubLogo from "/assets/images/icon-github.svg";
+import GitHubLogoWhite from "/assets/images/icon-github-link-box.svg";
 import YouTubeLogo from "/assets/images/icon-youtube.svg";
+import YouTubeLogoWhit from "/assets/images/icon-youtube-link-box.svg";
 import TwitterLogo from "/assets/images/icon-twitter.svg";
 import LinkedInLogo from "/assets/images/icon-linkedin.svg";
 import FacebookLogo from "/assets/images/icon-facebook.svg";
@@ -24,7 +26,7 @@ export const LINK_SITES: LinksTypes = [
     name: "GitHub",
     placeholderUrl: "https://www.github.com/johnappleseed",
     logo: GitHubLogo,
-    color: "hsl(0, 0%, 10%)",
+    color: "hsl(0, 0%, 1.5686274509803921%)",
     validation: /(https:\/\/)?(www\.)?github\.com\/[\w\-\/]*/,
   },
   {
