@@ -1,4 +1,4 @@
-import { useAccountContext } from "../../../../context/accountContext";
+import { useAccountContext } from "../../../../context/AccountContext";
 import AddNewLink from "./AddNewLink";
 import EmptyLinks from "./EmptyLinks";
 import SaveBtn from "./SaveBtn";
@@ -21,9 +21,11 @@ const CustomizeLinks = () => {
         {links.length < 1 ? (
           <EmptyLinks />
         ) : (
-          links.map((link, index) => (
-            <SingleLink key={index} link={link} />
-          ))
+          <div className="flex flex-col gap-5">
+            {links.map((link, index) => (
+              <SingleLink key={index} link={link} index={index} />
+            ))}
+          </div>
         )}
       </div>
       {/* save btn */}
