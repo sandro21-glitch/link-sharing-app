@@ -1,10 +1,24 @@
-import githubLogo from "/assets/images/icon-github-box.svg";
 import arrowRight from "/assets/images/icon-arrow-right-white.svg";
-const SingleLinkBox = () => {
+export interface SingleLinkBoxTypes {
+  link: {
+    name: string;
+    placeholderUrl: string;
+    logo: string;
+    color: string;
+    validation: RegExp;
+  };
+}
+
+const SingleLinkBox = ({ link }: SingleLinkBoxTypes) => {
   return (
-    <div className="flex justify-between items-center cursor-grab bg-black h-[44px] w-full rounded-[8px] text-white px-[16px] text-[.75rem]">
+    <div
+      style={{
+        backgroundColor: link.color,
+      }}
+      className={`flex justify-between items-center cursor-grab h-[44px] w-full rounded-[8px] text-white px-[16px] text-[.75rem]`}
+    >
       <div className="flex items-center gap-2">
-        <img src={githubLogo} alt="github logo" />
+        <img src={link.logo} alt="github logo" />
         Github
       </div>
       <img src={arrowRight} alt="arrow right" />
