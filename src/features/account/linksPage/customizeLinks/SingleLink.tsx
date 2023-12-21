@@ -1,4 +1,3 @@
-// import temp from "/assets/images/icon-github.svg";
 import temp2 from "/assets/images/icon-chevron-down.svg";
 import LinksPopup from "./LinksPopup";
 import { useState } from "react";
@@ -40,7 +39,7 @@ const SingleLink = ({ link, index }: SingleLinkTypes) => {
         </div>
         {openPopup ? <LinksPopup /> : null}
       </div>
-      <SingleLinkFooter />
+      <SingleLinkFooter link={link} />
     </div>
   );
 };
