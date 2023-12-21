@@ -14,6 +14,7 @@ export interface accountStateTypes {
     name: string;
     placeholderUrl: string;
     logo: string;
+    logoWhite: string;
     color: string;
     validation: RegExp;
   }[];
