@@ -1,5 +1,5 @@
 import { ADD_NEW_LINK } from "../actions/accountActions";
-import { accountStateTypes } from "../context/accountContext";
+import { accountStateTypes } from "../context/AccountContext";
 import { LinkType } from "../types/linksType";
 
 interface AddNewLinkAction {
