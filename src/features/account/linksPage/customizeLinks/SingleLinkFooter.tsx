@@ -1,6 +1,12 @@
 import iconLink from "/assets/images/icon-link.svg";
 
-const SingleLinkFooter = () => {
+type LinkFooterTypes = {
+  link: {
+    placeholderUrl: string;
+    validation: RegExp;
+  };
+};
+const SingleLinkFooter = ({ link }: LinkFooterTypes) => {
   return (
     <footer>
       <label htmlFor="" className="text-[.7rem]">
@@ -11,7 +17,7 @@ const SingleLinkFooter = () => {
         <input
           type="text"
           className=" border rounded-md h-[48px] w-full  pl-[44px] pr-[16px] outline-none hover:border-strongPurple transition-all duration-150 ease-in"
-          placeholder="e.g. https://www.github.com/johnappleseed"
+          placeholder={link.placeholderUrl}
         />
         <span className="absolute right-5 text-[.7rem] text-red-500 hidden">
           Can't be empty
