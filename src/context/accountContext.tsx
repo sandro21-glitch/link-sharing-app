@@ -6,7 +6,7 @@ import {
   useReducer,
 } from "react";
 import { accountReducer } from "../reducers/accountReducer";
-import { ADD_NEW_LINK } from "../actions/accountActions";
+import { ADD_NEW_LINK, SELECT_LINK } from "../actions/accountActions";
 import { LinkType } from "../types/linksType";
 
 export interface accountStateTypes {
@@ -23,6 +23,7 @@ interface AccountContextValue {
   state: accountStateTypes;
   dispatch: Dispatch<any>;
   addNewLink: (newLink: LinkType) => void;
+  selectLink: (index: number) => void;
 }
 const initialState: accountStateTypes = {
   links: [],
@@ -38,8 +39,13 @@ const AccountContext = ({ children }: AccountContextProviderProps) => {
   const addNewLink = (newLink: LinkType) => {
     dispatch({ type: ADD_NEW_LINK, payload: newLink });
   };
+  const selectLink = (index: number) => {
+    dispatch({ type: SELECT_LINK, payload: index });
+  };
   return (
-    <accountContextProvider.Provider value={{ state, dispatch, addNewLink }}>
+    <accountContextProvider.Provider
+      value={{ state, dispatch, addNewLink, selectLink }}
+    >
       {children}
     </accountContextProvider.Provider>
   );
