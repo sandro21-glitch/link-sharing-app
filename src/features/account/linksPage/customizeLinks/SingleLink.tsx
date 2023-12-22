@@ -33,11 +33,11 @@ const SingleLink = ({ link, index }: SingleLinkTypes) => {
           </div>
           <img
             src={temp2}
-            alt=""
+            alt="arrow"
             className={`${openPopup ? "rotate-180" : "rotate-0"}`}
           />
         </div>
-        {openPopup ? <LinksPopup /> : null}
+        {openPopup ? <LinksPopup selectIndex={index} /> : null}
       </div>
       <SingleLinkFooter link={link} />
     </div>
