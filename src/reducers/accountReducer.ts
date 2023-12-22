@@ -1,11 +1,16 @@
-import { ADD_NEW_LINK } from "../actions/accountActions";
+import { ADD_NEW_LINK, SELECT_LINK } from "../actions/accountActions";
 import { accountStateTypes } from "../context/AccountContext";
 import { LinkType } from "../types/linksType";
 
-interface AddNewLinkAction {
-  type: typeof ADD_NEW_LINK;
-  payload: LinkType;
-}
+type AddNewLinkAction =
+  | {
+      type: typeof ADD_NEW_LINK;
+      payload: LinkType;
+    }
+  | {
+      type: typeof SELECT_LINK;
+      payload: number;
+    };
 
 export const accountReducer = (
   state: accountStateTypes,
@@ -13,6 +18,9 @@ export const accountReducer = (
 ): accountStateTypes => {
   if (action.type === ADD_NEW_LINK) {
     return { ...state, links: [...state.links, action.payload] };
+  }
+  if (action.type === SELECT_LINK) {
+    return { ...state };
   }
   return state;
 };
