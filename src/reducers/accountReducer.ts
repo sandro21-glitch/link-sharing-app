@@ -9,7 +9,7 @@ type AddNewLinkAction =
     }
   | {
       type: typeof SELECT_LINK;
-      payload: number;
+      payload: LinkType;
     };
 
 export const accountReducer = (
@@ -17,10 +17,14 @@ export const accountReducer = (
   action: AddNewLinkAction
 ): accountStateTypes => {
   if (action.type === ADD_NEW_LINK) {
+    console.log(action.payload);
     return { ...state, links: [...state.links, action.payload] };
   }
   if (action.type === SELECT_LINK) {
-    return { ...state };
+    const selectedItem = action.payload;
+    console.log(action.payload);
+
+    return { ...state, selectedLink: selectedItem };
   }
   return state;
 };
