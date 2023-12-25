@@ -27,6 +27,7 @@ import HashNodeLogoWhite from "/assets/images/icon-hashnode-link-box.svg";
 import StackOverflowLogo from "/assets/images/icon-stack-overflow.svg";
 import StackOverflowLogoWhite from "/assets/images/icon-stack-overflow-link-box.svg";
 type LinksTypes = {
+  id: number;
   name: string;
   placeholderUrl: string;
   logo: string;
@@ -36,6 +37,7 @@ type LinksTypes = {
 }[];
 export const LINK_SITES: LinksTypes = [
   {
+    id: 1,
     name: "GitHub",
     placeholderUrl: "https://www.github.com/johnappleseed",
     logo: GitHubLogo,
@@ -44,6 +46,7 @@ export const LINK_SITES: LinksTypes = [
     validation: /(https:\/\/)?(www\.)?github\.com\/[\w\-\/]*/,
   },
   {
+    id: 2,
     name: "YouTube",
     placeholderUrl: "https://www.youtube.com/johnappleseed",
     logo: YouTubeLogo,
@@ -52,6 +55,7 @@ export const LINK_SITES: LinksTypes = [
     validation: /(https:\/\/)?(www\.)?youtube\.com\/.*/,
   },
   {
+    id: 3,
     name: "Twitter",
     placeholderUrl: "https://www.twitter.com/johnappleseed",
     logo: TwitterLogo,
@@ -60,6 +64,7 @@ export const LINK_SITES: LinksTypes = [
     validation: /(https:\/\/)?(www\.)?twitter\.com\/[\w\-\/]*/,
   },
   {
+    id: 4,
     name: "LinkedIn",
     placeholderUrl: "https://www.linkedin.com/johnappleseed",
     logo: LinkedInLogo,
@@ -68,6 +73,7 @@ export const LINK_SITES: LinksTypes = [
     validation: /(https:\/\/)?(www\.)?linkedin\.com\/[\w\-\/]*/,
   },
   {
+    id: 5,
     name: "Facebook",
     placeholderUrl: "https://www.facebook.com/johnappleseed",
     logo: FacebookLogo,
@@ -76,6 +82,7 @@ export const LINK_SITES: LinksTypes = [
     validation: /(https:\/\/)?(www\.)?facebook\.com\/[\w\-\/]*/,
   },
   {
+    id: 6,
     name: "Frontend Mentor",
     placeholderUrl: "https://www.frontendmentor.io/johnappleseed",
     logo: FrontendMentorLogo,
@@ -84,6 +91,7 @@ export const LINK_SITES: LinksTypes = [
     validation: /(https:\/\/)?(www\.)?frontendmentor\.io\/[\w\-\/]*/,
   },
   {
+    id: 7,
     name: "Twitch",
     placeholderUrl: "https://www.twitch.tv/johnappleseed",
     logo: TwitchLogo,
@@ -92,6 +100,7 @@ export const LINK_SITES: LinksTypes = [
     validation: /(https:\/\/)?(www\.)?twitch\.tv\/[\w\-\/]*/,
   },
   {
+    id: 8,
     name: "Dev.to",
     placeholderUrl: "https://dev.to/johnappleseed",
     logo: DevtoLogo,
@@ -100,6 +109,7 @@ export const LINK_SITES: LinksTypes = [
     validation: /(https:\/\/)?(www\.)?dev\.to\/[\w\-\/]*/,
   },
   {
+    id: 9,
     name: "Codewars",
     placeholderUrl: "https://www.codewars.com/users/johnappleseed",
     logo: CodewarsLogo,
@@ -108,6 +118,7 @@ export const LINK_SITES: LinksTypes = [
     validation: /(https:\/\/)?(www\.)?codewars\.com\/users\/[\w\-\/]*/,
   },
   {
+    id: 10,
     name: "Codepen",
     placeholderUrl: "https://codepen.io/johnappleseed",
     logo: CodepenLogo,
@@ -116,6 +127,7 @@ export const LINK_SITES: LinksTypes = [
     validation: /(https:\/\/)?(www\.)?codepen\.io\/[\w\-\/]*/,
   },
   {
+    id: 11,
     name: "freeCodeCamp",
     placeholderUrl: "https://www.freecodecamp.org/johnappleseed",
     logo: FreeCodeCampLogo,
@@ -124,6 +136,7 @@ export const LINK_SITES: LinksTypes = [
     validation: /(https:\/\/)?(www\.)?freecodecamp\.org\/[\w\-\/]*/,
   },
   {
+    id: 12,
     name: "GitLab",
     placeholderUrl: "https://gitlab.com/johnappleseed",
     logo: GitLabLogo,
@@ -132,6 +145,7 @@ export const LINK_SITES: LinksTypes = [
     validation: /(https:\/\/)?(www\.)?gitlab\.com\/[\w\-\/]*/,
   },
   {
+    id: 13,
     name: "Hashnode",
     placeholderUrl: "https://hashnode.com/@johnappleseed",
     logo: HashNodeLogo,
@@ -140,6 +154,7 @@ export const LINK_SITES: LinksTypes = [
     validation: /(https:\/\/)?(www\.)?hashnode\.com\/@[\w\-\/]*/,
   },
   {
+    id: 14,
     name: "Stack Overflow",
     placeholderUrl: "https://stackoverflow.com/users/1234/johnappleseed",
     logo: StackOverflowLogo,
