@@ -5,19 +5,19 @@ import SingleLinkHeader from "./SingleLinkHeader";
 import SingleLinkFooter from "./SingleLinkFooter";
 type SingleLinkTypes = {
   link: {
+    id: number;
     name: string;
     placeholderUrl: string;
     logo: string;
     color: string;
     validation: RegExp;
   };
-  index: number;
 };
-const SingleLink = ({ link, index }: SingleLinkTypes) => {
+const SingleLink = ({ link }: SingleLinkTypes) => {
   const [openPopup, setOpenPopup] = useState(false);
   return (
     <div className="bg-[#fafafa] p-[20px] rounded-md">
-      <SingleLinkHeader index={index} />
+      <SingleLinkHeader id={link.id} />
       {/* pltform */}
       <div className="mb-2 relative">
         <label htmlFor="" className="text-[.7rem]">
@@ -37,7 +37,7 @@ const SingleLink = ({ link, index }: SingleLinkTypes) => {
             className={`${openPopup ? "rotate-180" : "rotate-0"}`}
           />
         </div>
-        {openPopup ? <LinksPopup selectIndex={index} /> : null}
+        {openPopup ? <LinksPopup/> : null}
       </div>
       <SingleLinkFooter link={link} />
     </div>
