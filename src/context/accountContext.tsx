@@ -11,6 +11,7 @@ import { LinkType } from "../types/linksType";
 
 export interface accountStateTypes {
   links: {
+    id: number;
     name: string;
     placeholderUrl: string;
     logo: string;
@@ -18,15 +19,17 @@ export interface accountStateTypes {
     color: string;
     validation: RegExp;
   }[];
+  selectedLink?: LinkType | null;
 }
 interface AccountContextValue {
   state: accountStateTypes;
   dispatch: Dispatch<any>;
   addNewLink: (newLink: LinkType) => void;
-  selectLink: (index: number) => void;
+  selectLink: (link: LinkType) => void;
 }
 const initialState: accountStateTypes = {
   links: [],
+  selectedLink: null,
 };
 interface AccountContextProviderProps {
   children: ReactNode;
@@ -39,8 +42,8 @@ const AccountContext = ({ children }: AccountContextProviderProps) => {
   const addNewLink = (newLink: LinkType) => {
     dispatch({ type: ADD_NEW_LINK, payload: newLink });
   };
-  const selectLink = (index: number) => {
-    dispatch({ type: SELECT_LINK, payload: index });
+  const selectLink = (link: LinkType) => {
+    dispatch({ type: SELECT_LINK, payload: link });
   };
   return (
     <accountContextProvider.Provider
