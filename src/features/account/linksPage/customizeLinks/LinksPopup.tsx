@@ -1,8 +1,5 @@
 import { LINK_SITES } from "../../../../platforms";
 const LinksPopup = () => {
-
-
-
   return (
     <div className="absolute z-[9999] border rounded-md top-[5.5rem] bg-white w-full h-[345px] px-[16px] overflow-y-scroll">
       {LINK_SITES.map((link) => (
