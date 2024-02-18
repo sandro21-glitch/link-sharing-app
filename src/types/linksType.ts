@@ -1,4 +1,4 @@
-export interface LinkType {
+export interface LinkTypes {
   id: number;
   name: string;
   placeholderUrl: string;
@@ -7,3 +7,4 @@ export interface LinkType {
   color: string;
   validation: RegExp;
 }
+[];
