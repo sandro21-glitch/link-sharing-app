@@ -3,21 +3,21 @@ import LinksPopup from "./LinksPopup";
 import { useState } from "react";
 import SingleLinkHeader from "./SingleLinkHeader";
 import SingleLinkFooter from "./SingleLinkFooter";
-type SingleLinkTypes = {
-  link: {
-    id: number;
-    name: string;
-    placeholderUrl: string;
-    logo: string;
-    color: string;
-    validation: RegExp;
-  };
-};
-const SingleLink = ({ link }: SingleLinkTypes) => {
+// type SingleLinkTypes = {
+//   link: {
+//     id: number;
+//     name: string;
+//     placeholderUrl: string;
+//     logo: string;
+//     color: string;
+//     validation: RegExp;
+//   };
+// };
+const SingleLink = () => {
   const [openPopup, setOpenPopup] = useState(false);
   return (
     <div className="bg-[#fafafa] p-[20px] rounded-md">
-      <SingleLinkHeader id={link.id} />
+      <SingleLinkHeader id={1} />
       {/* pltform */}
       <div className="mb-2 relative">
         <label htmlFor="" className="text-[.7rem]">
@@ -28,8 +28,8 @@ const SingleLink = ({ link }: SingleLinkTypes) => {
           className="flex justify-between items-center h-[48px] bg-white py-[12px] px-[16px] border rounded-md cursor-pointer hover:border-strongPurple transition-all duration-150 ease-in"
         >
           <div className="flex items-center gap-3">
-            <img src={link.logo} alt={link.name} />
-            <span className="text-darkGrey">{link.name}</span>
+            <img alt="link logo" />
+            <span className="text-darkGrey">link.name</span>
           </div>
           <img
             src={temp2}
@@ -37,9 +37,9 @@ const SingleLink = ({ link }: SingleLinkTypes) => {
             className={`${openPopup ? "rotate-180" : "rotate-0"}`}
           />
         </div>
-        {openPopup ? <LinksPopup/> : null}
+        {openPopup ? <LinksPopup /> : null}
       </div>
-      <SingleLinkFooter link={link} />
+      <SingleLinkFooter />
     </div>
   );
 };
