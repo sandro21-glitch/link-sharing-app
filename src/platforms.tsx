@@ -26,16 +26,9 @@ import HashNodeLogo from "/assets/images/icon-hashnode.svg";
 import HashNodeLogoWhite from "/assets/images/icon-hashnode-link-box.svg";
 import StackOverflowLogo from "/assets/images/icon-stack-overflow.svg";
 import StackOverflowLogoWhite from "/assets/images/icon-stack-overflow-link-box.svg";
-type LinksTypes = {
-  id: number;
-  name: string;
-  placeholderUrl: string;
-  logo: string;
-  logoWhite: string;
-  color: string;
-  validation: RegExp;
-}[];
-export const LINK_SITES: LinksTypes = [
+import { LinkTypes } from "./types/linksType";
+
+export const LINK_SITES: LinkTypes[] = [
   {
     id: 1,
     name: "GitHub",
