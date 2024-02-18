@@ -1,10 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-
+import linksReducer from "./features/links";
 export const store = configureStore({
   reducer: {
-    // posts: postsReducer,
-    // comments: commentsReducer,
-    // users: usersReducer,
+    links: linksReducer,
   },
 });
 
