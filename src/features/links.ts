@@ -23,10 +23,25 @@ export const linksSlice = createSlice({
       };
       state.links.push(newLink);
     },
+    editLink: (
+      state,
+      action: PayloadAction<{ id: string; link: SingleLinkType }>
+    ) => {
+      const { id, link } = action.payload;
+      const selectedLink = state.links.find((link) => link.id === id);
+      if (selectedLink) {
+        selectedLink.validation = link.validation;
+        selectedLink.color = link.color;
+        selectedLink.logo = link.logo;
+        selectedLink.logoWhite = link.logoWhite;
+        selectedLink.placeholderUrl = link.placeholderUrl;
+        selectedLink.name = link.name;
+      }
+    },
   },
 });
 
-export const { addNewLink } = linksSlice.actions;
+export const { addNewLink, editLink } = linksSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 // export const selectCount = (state: RootState) => state.counter.value;
