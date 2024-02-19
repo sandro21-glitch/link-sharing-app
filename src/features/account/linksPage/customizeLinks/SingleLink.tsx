@@ -5,17 +5,18 @@ import SingleLinkHeader from "./SingleLinkHeader";
 import SingleLinkFooter from "./SingleLinkFooter";
 type SingleLinkTypes = {
   link: {
-    id: number;
+    id: string;
     name: string;
     placeholderUrl: string;
     logo: string;
+    logoWhite: string;
     color: string;
     validation: string;
   };
 };
 const SingleLink = ({ link }: SingleLinkTypes) => {
   const [openPopup, setOpenPopup] = useState(false);
-  const { logo, name, validation, placeholderUrl } = link;
+  const { logo, name, validation, placeholderUrl, id } = link;
   return (
     <li className="bg-[#fafafa] p-[20px] rounded-md">
       <SingleLinkHeader id={1} />
@@ -38,7 +39,7 @@ const SingleLink = ({ link }: SingleLinkTypes) => {
             className={`${openPopup ? "rotate-180" : "rotate-0"}`}
           />
         </div>
-        {openPopup ? <LinksPopup /> : null}
+        {openPopup ? <LinksPopup id={id} setOpenPopup={setOpenPopup} /> : null}
       </div>
       <SingleLinkFooter
         validation={validation}
