@@ -19,8 +19,8 @@ const SingleLink = ({ link }: SingleLinkTypes) => {
   const { logo, name, validation, placeholderUrl, id } = link;
   return (
     <li className="bg-[#fafafa] p-[20px] rounded-md">
-      <SingleLinkHeader id={1} />
-      {/* pltform */}
+      <SingleLinkHeader id={id} />
+      {/* platform */}
       <div className="mb-2 relative">
         <label htmlFor="" className="text-[.7rem]">
           Platform
