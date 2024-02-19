@@ -13,13 +13,14 @@ type SingleLinkTypes = {
     color: string;
     validation: string;
   };
+  index: number;
 };
-const SingleLink = ({ link }: SingleLinkTypes) => {
+const SingleLink = ({ link, index }: SingleLinkTypes) => {
   const [openPopup, setOpenPopup] = useState(false);
   const { logo, name, validation, placeholderUrl, id } = link;
   return (
     <li className="bg-[#fafafa] p-[20px] rounded-md">
-      <SingleLinkHeader id={id} />
+      <SingleLinkHeader id={id} index={index} />
       {/* platform */}
       <div className="mb-2 relative">
         <label htmlFor="" className="text-[.7rem]">

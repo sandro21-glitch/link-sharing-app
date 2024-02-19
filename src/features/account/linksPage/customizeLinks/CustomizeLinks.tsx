@@ -23,8 +23,8 @@ const CustomizeLinks = () => {
           <EmptyLinks />
         ) : (
           <ul className="flex flex-col gap-5">
-            {links.map((link) => {
-              return <SingleLink key={link.id} link={link} />;
+            {links.map((link, index) => {
+              return <SingleLink key={link.id} link={link} index={index} />;
             })}
           </ul>
         )}
