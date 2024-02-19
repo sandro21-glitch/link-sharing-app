@@ -11,7 +11,7 @@ type SingleLinkTypes = {
   };
 };
 const SingleLinkBox = ({ link }: SingleLinkTypes) => {
-  const { color, logo, name, logoWhite } = link;
+  const { color, name, logoWhite } = link;
   return (
     <div
       style={{
@@ -20,7 +20,7 @@ const SingleLinkBox = ({ link }: SingleLinkTypes) => {
       className={`border flex justify-between items-center cursor-grab h-[44px] w-full rounded-[8px] text-white px-[16px] text-[.75rem]`}
     >
       <div className="flex gap-2 items-center">
-        <img src={name === "Frontend Mentor" ? logo : logoWhite} alt={name} />
+        <img src={logoWhite} alt={name} />
         <span
           className={`${
             name === "Frontend Mentor" ? "text-black" : "text-white"
