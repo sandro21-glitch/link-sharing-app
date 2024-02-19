@@ -38,10 +38,13 @@ export const linksSlice = createSlice({
         selectedLink.name = link.name;
       }
     },
+    removeLink: (state, action: PayloadAction<string>) => {
+      state.links = state.links.filter((link) => link.id !== action.payload);
+    },
   },
 });
 
-export const { addNewLink, editLink } = linksSlice.actions;
+export const { addNewLink, editLink, removeLink } = linksSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 // export const selectCount = (state: RootState) => state.counter.value;
