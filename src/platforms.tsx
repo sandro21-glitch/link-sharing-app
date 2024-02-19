@@ -26,9 +26,17 @@ import HashNodeLogo from "/assets/images/icon-hashnode.svg";
 import HashNodeLogoWhite from "/assets/images/icon-hashnode-link-box.svg";
 import StackOverflowLogo from "/assets/images/icon-stack-overflow.svg";
 import StackOverflowLogoWhite from "/assets/images/icon-stack-overflow-link-box.svg";
-import { LinkTypes } from "./types/linksType";
-
-export const LINK_SITES: LinkTypes[] = [
+interface LinkSiteTypes {
+  id: number;
+  name: string;
+  placeholderUrl: string;
+  logo: string;
+  logoWhite: string;
+  color: string;
+  validation: string;
+}
+[];
+export const LINK_SITES: LinkSiteTypes[] = [
   {
     id: 1,
     name: "GitHub",
@@ -36,7 +44,7 @@ export const LINK_SITES: LinkTypes[] = [
     logo: GitHubLogo,
     logoWhite: GitHubLogoWhite,
     color: "hsl(0, 0%, 1.5686274509803921%)",
-    validation: /(https:\/\/)?(www\.)?github\.com\/[\w\-\/]*/,
+    validation: "/(https://)?(www.)?github.com/[w-/]*/",
   },
   {
     id: 2,
@@ -45,7 +53,7 @@ export const LINK_SITES: LinkTypes[] = [
     logo: YouTubeLogo,
     logoWhite: YouTubeLogoWhit,
     color: "hsl(0, 84%, 58%)",
-    validation: /(https:\/\/)?(www\.)?youtube\.com\/.*/,
+    validation: "/(https://)?(www.)?youtube.com/.*/",
   },
   {
     id: 3,
@@ -54,7 +62,7 @@ export const LINK_SITES: LinkTypes[] = [
     logo: TwitterLogo,
     logoWhite: TwitterLogoWhite,
     color: "hsl(198, 79%, 59%)",
-    validation: /(https:\/\/)?(www\.)?twitter\.com\/[\w\-\/]*/,
+    validation: "/(https://)?(www.)?twitter.com/[w-/]*/",
   },
   {
     id: 4,
@@ -63,7 +71,7 @@ export const LINK_SITES: LinkTypes[] = [
     logo: LinkedInLogo,
     logoWhite: LinkedInLogoWhite,
     color: "hsl(223, 100%, 59%)",
-    validation: /(https:\/\/)?(www\.)?linkedin\.com\/[\w\-\/]*/,
+    validation: "/(https://)?(www.)?linkedin.com/[w-/]*/",
   },
   {
     id: 5,
@@ -72,7 +80,7 @@ export const LINK_SITES: LinkTypes[] = [
     logo: FacebookLogo,
     logoWhite: FacebookLogoWhite,
     color: "hsl(227, 66%, 41%)",
-    validation: /(https:\/\/)?(www\.)?facebook\.com\/[\w\-\/]*/,
+    validation: "/(https://)?(www.)?facebook.com/[w-/]*/",
   },
   {
     id: 6,
@@ -81,7 +89,7 @@ export const LINK_SITES: LinkTypes[] = [
     logo: FrontendMentorLogo,
     logoWhite: FrontendMentorLogoWhite,
     color: "hsl(0, 0%, 100%)",
-    validation: /(https:\/\/)?(www\.)?frontendmentor\.io\/[\w\-\/]*/,
+    validation: "/(https://)?(www.)?frontendmentor.io/[w-/]*/",
   },
   {
     id: 7,
@@ -90,7 +98,7 @@ export const LINK_SITES: LinkTypes[] = [
     logo: TwitchLogo,
     logoWhite: TwitchLogoWhite,
     color: "hsl(313, 84%, 59%)",
-    validation: /(https:\/\/)?(www\.)?twitch\.tv\/[\w\-\/]*/,
+    validation: "/(https://)?(www.)?twitch.tv/[w-/]*/",
   },
   {
     id: 8,
@@ -99,7 +107,7 @@ export const LINK_SITES: LinkTypes[] = [
     logo: DevtoLogo,
     logoWhite: DevtoLogoWhite,
     color: "hsl(0, 0%, 20%)",
-    validation: /(https:\/\/)?(www\.)?dev\.to\/[\w\-\/]*/,
+    validation: "/(https://)?(www.)?dev.to/[w-/]*/",
   },
   {
     id: 9,
@@ -108,7 +116,7 @@ export const LINK_SITES: LinkTypes[] = [
     logo: CodewarsLogo,
     logoWhite: CodewarsLogoWhite,
     color: "hsl(331, 68%, 32%)",
-    validation: /(https:\/\/)?(www\.)?codewars\.com\/users\/[\w\-\/]*/,
+    validation: "/(https://)?(www.)?codewars.com/users/[w-/]*/",
   },
   {
     id: 10,
@@ -117,7 +125,7 @@ export const LINK_SITES: LinkTypes[] = [
     logo: CodepenLogo,
     logoWhite: CodepenLogoWhite,
     color: "hsl(145, 68%, 32%)",
-    validation: /(https:\/\/)?(www\.)?codepen\.io\/[\w\-\/]*/,
+    validation: "/(https://)?(www.)?codepen.io/[w-/]*/",
   },
   {
     id: 11,
@@ -126,7 +134,7 @@ export const LINK_SITES: LinkTypes[] = [
     logo: FreeCodeCampLogo,
     logoWhite: FreeCodeCampLogoWhite,
     color: "hsl(252, 50%, 27%)",
-    validation: /(https:\/\/)?(www\.)?freecodecamp\.org\/[\w\-\/]*/,
+    validation: "/(https://)?(www.)?freecodecamp.org/[w-/]*/",
   },
   {
     id: 12,
@@ -135,7 +143,7 @@ export const LINK_SITES: LinkTypes[] = [
     logo: GitLabLogo,
     logoWhite: GitLabLogoWhite,
     color: "hsl(11, 83%, 53%)",
-    validation: /(https:\/\/)?(www\.)?gitlab\.com\/[\w\-\/]*/,
+    validation: "/(https://)?(www.)?gitlab.com/[w-/]*/",
   },
   {
     id: 13,
@@ -144,7 +152,7 @@ export const LINK_SITES: LinkTypes[] = [
     logo: HashNodeLogo,
     logoWhite: HashNodeLogoWhite,
     color: "hsl(227, 98%, 42%)",
-    validation: /(https:\/\/)?(www\.)?hashnode\.com\/@[\w\-\/]*/,
+    validation: "/(https://)?(www.)?hashnode.com/@[w-/]*/",
   },
   {
     id: 14,
@@ -153,7 +161,6 @@ export const LINK_SITES: LinkTypes[] = [
     logo: StackOverflowLogo,
     logoWhite: StackOverflowLogoWhite,
     color: "hsl(29, 100%, 46%)",
-    validation:
-      /(https:\/\/)?(www\.)?stackoverflow\.com\/users\/\d+\/[\w\-\/]*/,
+    validation: "/(https://)?(www.)?stackoverflow.com/users/d+/[w-/]*/",
   },
 ];

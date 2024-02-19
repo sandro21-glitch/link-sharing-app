@@ -1,34 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import type { PayloadAction } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
+import { v4 as uuidv4 } from "uuid";
 // import type { RootState } from "../store";
-import { LinkTypes } from "../types/linksType";
-import GitLabLogo from "/assets/images/icon-gitlab.svg";
-import GitLabLogoWhite from "/assets/images/icon-gitlab-link-box.svg";
+import { LinkTypes, SingleLinkType } from "../types/linksType";
+
 interface LinksState {
   links: LinkTypes[];
 }
 
 const initialState: LinksState = {
-  links: [
-    {
-      id: 1,
-      name: "GitHub",
-      placeholderUrl: "https://www.github.com/johnappleseed",
-      logo: GitLabLogo,
-      logoWhite: GitLabLogoWhite,
-      color: "hsl(0, 0%, 1.5686274509803921%)",
-      validation: /(https:\/\/)?(www\.)?github\.com\/[\w\-\/]*/,
-    },
-  ],
+  links: [],
 };
 
 export const linksSlice = createSlice({
   name: "links",
   initialState,
-  reducers: {},
+  reducers: {
+    addNewLink: (state, action: PayloadAction<SingleLinkType>) => {
+      const newLink = {
+        id: uuidv4(),
+        ...action.payload,
+      };
+      state.links.push(newLink);
+    },
+  },
 });
 
-export const {} = linksSlice.actions;
+export const { addNewLink } = linksSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 // export const selectCount = (state: RootState) => state.counter.value;

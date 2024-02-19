@@ -1,10 +1,19 @@
 export interface LinkTypes {
-  id: number;
+  id: string;
   name: string;
   placeholderUrl: string;
   logo: string;
   logoWhite: string;
   color: string;
-  validation: RegExp;
+  validation: string;
 }
 [];
+
+export interface SingleLinkType {
+  name: string;
+  placeholderUrl: string;
+  logo: string;
+  logoWhite: string;
+  color: string;
+  validation: string;
+}
