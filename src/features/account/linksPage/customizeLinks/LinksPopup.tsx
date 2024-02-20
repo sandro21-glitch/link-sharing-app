@@ -7,7 +7,6 @@ type LinkPopupTypes = {
   setOpenPopup: (open: boolean) => void;
 };
 const LinksPopup = ({ id, setOpenPopup }: LinkPopupTypes) => {
-  console.log(id);
   const dispatch = useAppDispatch();
   const handleChangeLink = (link: SingleLinkType) => {
     dispatch(editLink({ id, link }));
