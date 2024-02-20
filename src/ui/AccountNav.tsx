@@ -1,11 +1,13 @@
 import logoLarge from "/assets/images/logo-devlinks-large.svg";
 import LinkIcon from "./LinkIcon";
 import ProfileIcon from "./ProfileIcon";
+import { useNavigate } from "react-router-dom";
 type AccountNavTypes = {
   currPage: string;
   setCurrPage: (page: string) => void;
 };
 const AccountNav = ({ currPage, setCurrPage }: AccountNavTypes) => {
+  const navigate = useNavigate()
   return (
     <nav className="w-full h-[78px] p-5 bg-white rounded-md flex items-center justify-between mb-5">
       <img
@@ -51,7 +53,7 @@ const AccountNav = ({ currPage, setCurrPage }: AccountNavTypes) => {
           </div>
         </li>
       </ul>
-      <button className="w-[114px] h-[46px] border border-strongPurple rounded-lg capitalize text-strongPurple font-semibold hover:bg-veryLightPurple transition-colors ease-in duration-150">
+      <button onClick={() => navigate('/preview')} className="w-[114px] h-[46px] border border-strongPurple rounded-lg capitalize text-strongPurple font-semibold hover:bg-veryLightPurple transition-colors ease-in duration-150">
         preview
       </button>
     </nav>
