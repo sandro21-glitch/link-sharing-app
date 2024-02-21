@@ -6,6 +6,7 @@ const AddNewLink = () => {
   const dispatch = useAppDispatch();
   const firstLink = {
     name: LINK_SITES[0].name,
+    link: "",
     placeholderUrl: LINK_SITES[0].placeholderUrl,
     logo: LINK_SITES[0].logo,
     logoWhite: LINK_SITES[0].logoWhite,
