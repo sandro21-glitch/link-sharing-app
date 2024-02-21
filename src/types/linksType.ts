@@ -1,6 +1,6 @@
 export interface LinkTypes {
   id: string;
-  link: string;
+  path: string;
   name: string;
   placeholderUrl: string;
   logo: string;
