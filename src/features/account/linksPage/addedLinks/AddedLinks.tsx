@@ -1,4 +1,4 @@
-import LinkBoxes from "../linkBoxesContainer/LinkBoxes";
+import LinkBoxes from "./LinkBoxes";
 import phoneMockup from "/assets/images/illustration-phone-mockup.svg";
 const AddedLinks = () => {
   return (
