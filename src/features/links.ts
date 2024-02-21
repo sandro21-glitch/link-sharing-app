@@ -19,6 +19,7 @@ export const linksSlice = createSlice({
     addNewLink: (state, action: PayloadAction<SingleLinkType>) => {
       const newLink = {
         id: uuidv4(),
+        link: "",
         ...action.payload,
       };
       state.links.push(newLink);
