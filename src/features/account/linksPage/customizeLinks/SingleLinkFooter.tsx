@@ -1,20 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import iconLink from "/assets/images/icon-link.svg";
+import { useAppDispatch } from "../../../../hooks/reduxHooks";
+import { addLinkPath } from "../../../links";
 
 type SingleLinkFooterTypes = {
   validation: string;
   name: string;
   placeholderUrl: string;
+  id: string;
+  path: string;
 };
 
 const SingleLinkFooter = ({
   validation,
   name,
   placeholderUrl,
+  id,
+  path,
 }: SingleLinkFooterTypes) => {
-  const [linkPath, setLinkPath] = useState("");
+  const [linkPath, setLinkPath] = useState(path ? path : "");
   const [blurred, setBlurred] = useState(false);
-
+  const dispatch = useAppDispatch();
   const patternWithoutSlashes = validation.replace(/^\/|\/$/g, "");
   const regexPattern = new RegExp(patternWithoutSlashes);
 
@@ -36,7 +42,16 @@ const SingleLinkFooter = ({
   const isInputTyped = linkPath.length > 0;
   const isInvalidInput = !isValid(linkPath);
   const isEmptyInput = linkPath.length === 0 && blurred;
-
+  useEffect(() => {
+    if (isValid(linkPath)) {
+      // Check if linkPath is not empty before dispatching
+      if (linkPath.trim() !== "") {
+        dispatch(addLinkPath({ id, linkPath }));
+      } else {
+        setLinkPath(""); // clear linkPath if it's empty
+      }
+    }
+  }, [dispatch, id, linkPath, isValid]);
   return (
     <footer>
       <label htmlFor={name} className="text-[.7rem]">
