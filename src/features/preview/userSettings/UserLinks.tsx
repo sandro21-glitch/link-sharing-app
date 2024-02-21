@@ -4,11 +4,11 @@ const UserLinks = () => {
   const { links } = useAppSelector((store) => store.links);
   return (
     <div className="w-full flex flex-col gap-3">
-      {links.map((link) => {
-        const { color, id, logoWhite, name } = link;
+      {links.map((singleLink) => {
+        const { color, id, logoWhite, name, path } = singleLink;
         return (
           <a
-            href="link"
+            href={path}
             target="_blank"
             key={id}
             style={{
