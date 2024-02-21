@@ -12,12 +12,13 @@ type SingleLinkTypes = {
     logoWhite: string;
     color: string;
     validation: string;
+    path: string;
   };
   index: number;
 };
 const SingleLink = ({ link, index }: SingleLinkTypes) => {
   const [openPopup, setOpenPopup] = useState(false);
-  const { logo, name, validation, placeholderUrl, id } = link;
+  const { logo, name, validation, placeholderUrl, id, path } = link;
   return (
     <li className="bg-[#fafafa] p-[20px] rounded-md">
       <SingleLinkHeader id={id} index={index} />
@@ -46,6 +47,8 @@ const SingleLink = ({ link, index }: SingleLinkTypes) => {
         validation={validation}
         name={name}
         placeholderUrl={placeholderUrl}
+        id={id}
+        path={path}
       />
     </li>
   );
