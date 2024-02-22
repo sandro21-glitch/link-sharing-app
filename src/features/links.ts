@@ -18,12 +18,12 @@ export const linksSlice = createSlice({
   initialState,
   reducers: {
     addNewLink: (state, action: PayloadAction<SingleLinkType>) => {
-      const newLink = {
-        id: uuidv4(),
-        path: "",
-        ...action.payload,
-      };
-      if (state.links.length != 5) {
+      if (state.links.length < 5) {
+        const newLink = {
+          id: uuidv4(),
+          path: "",
+          ...action.payload,
+        };
         state.links.push(newLink);
       }
     },
