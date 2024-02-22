@@ -18,9 +18,11 @@ const SingleLinkFooter = ({
   id,
   path,
 }: SingleLinkFooterTypes) => {
-  const [linkPath, setLinkPath] = useState(path ? path : "");
+  const [linkPath, setLinkPath] = useState(path);
   const [blurred, setBlurred] = useState(false);
+  const [isValidInput, setIsValidInput] = useState(true);
   const dispatch = useAppDispatch();
+
   const patternWithoutSlashes = validation.replace(/^\/|\/$/g, "");
   const regexPattern = new RegExp(patternWithoutSlashes);
 
@@ -29,6 +31,7 @@ const SingleLinkFooter = ({
   const handleAddLink = (e: React.FormEvent<HTMLInputElement>) => {
     const inputValue = (e.target as HTMLInputElement).value;
     setLinkPath(inputValue);
+    setIsValidInput(isValid(inputValue));
   };
 
   const handleFocus = () => {
@@ -40,18 +43,25 @@ const SingleLinkFooter = ({
   };
 
   const isInputTyped = linkPath.length > 0;
-  const isInvalidInput = !isValid(linkPath);
+  const isInvalidInput = !isValidInput && blurred && isInputTyped;
   const isEmptyInput = linkPath.length === 0 && blurred;
+
   useEffect(() => {
-    if (isValid(linkPath)) {
+    setLinkPath(path);
+  }, [path]);
+
+  useEffect(() => {
+    if (isValidInput) {
       // Check if linkPath is not empty before dispatching
       if (linkPath.trim() !== "") {
         dispatch(addLinkPath({ id, linkPath }));
       } else {
-        setLinkPath(""); // clear linkPath if it's empty
+        setLinkPath("");
+        dispatch(addLinkPath({ id, linkPath: "" }));
       }
     }
-  }, [dispatch, id, linkPath, isValid]);
+  }, [dispatch, id, linkPath, isValidInput]);
+
   return (
     <footer>
       <label htmlFor={name} className="text-[.7rem]">
@@ -67,8 +77,7 @@ const SingleLinkFooter = ({
           type="text"
           id={name}
           className={`border ${
-            (isInvalidInput && blurred && isInputTyped) ||
-            (isEmptyInput && blurred)
+            (isInvalidInput && isInputTyped) || (isEmptyInput && blurred)
               ? "border-red-500 text-red-500"
               : "text-black"
           } rounded-md h-[48px] w-full pl-[44px] pr-[16px] outline-none hover:border-strongPurple transition-all duration-150 ease-in`}
