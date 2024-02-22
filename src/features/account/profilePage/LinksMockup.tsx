@@ -2,7 +2,7 @@ import LinkBoxes from "../linksPage/addedLinks/LinkBoxes";
 import phoneMockup from "/assets/images/illustration-phone-mockup.svg";
 const LinksMockup = () => {
   return (
-    <section className="bg-white rounded-[12px] w-[512px] h-[834px] flex-center ">
+    <section className="bg-white rounded-[12px] w-[512px] h-[834px] hidden lg:flex-center ">
       <div className="relative">
         <img
           src={phoneMockup}
