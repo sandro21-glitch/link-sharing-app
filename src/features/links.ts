@@ -23,7 +23,9 @@ export const linksSlice = createSlice({
         path: "",
         ...action.payload,
       };
-      state.links.push(newLink);
+      if (state.links.length != 5) {
+        state.links.push(newLink);
+      }
     },
     editLink: (
       state,
