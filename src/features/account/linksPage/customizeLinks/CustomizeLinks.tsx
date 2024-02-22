@@ -6,19 +6,18 @@ import EmptyLinks from "./EmptyLinks";
 const CustomizeLinks = () => {
   const { links } = useAppSelector((store) => store.links);
   const isLinksEmpty = links.length < 1;
-  const isLinkPathsEmpty = links.map((link) => link.path !== "");
-  
+  const isLinkPathsEmpty = links.every((link) => link.path !== "");
+
   const handleSaveLinks = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (isLinkPathsEmpty) {
-      console.log("added link paths");
       // save links to localStorage
       localStorage.setItem("links", JSON.stringify(links));
     }
   };
   return (
     <form
-      onSubmit={(e) => handleSaveLinks(e)}
+      onSubmit={handleSaveLinks}
       className="bg-white flex-1 rounded-[12px] h-full"
     >
       <h1 className="text-[2rem] font-semibold normal-case pt-10 px-10 mb-5">
