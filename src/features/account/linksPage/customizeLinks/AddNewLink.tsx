@@ -24,11 +24,11 @@ const AddNewLink = () => {
       className={`
       ${
         isLinksFull
-          ? "cursor-not-allowed bg-gray-300 text-gray-700 border-transparent hover:"
+          ? "cursor-not-allowed bg-gray-300 text-gray-700 border-transparent"
           : "hover:bg-veryLightPurple"
       }
       mb-5 border border-strongPurple w-full py-3 rounded-lg
-       text-strongPurple font-medium  transition-colors ease-in duration-150`}
+       text-strongPurple font-medium transition-colors ease-in duration-150`}
     >
       + Add new link
     </button>
