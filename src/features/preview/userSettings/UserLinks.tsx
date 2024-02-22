@@ -8,7 +8,7 @@ const UserLinks = () => {
         const { color, id, logoWhite, name, path } = singleLink;
         return (
           <a
-            href={path}
+          href={path.startsWith("https") ? path : `https://${path}`}
             target="_blank"
             key={id}
             style={{
