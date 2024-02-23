@@ -3,7 +3,7 @@ import arrowRight from "/assets/images/icon-arrow-right-white.svg";
 const UserLinks = () => {
   const { links } = useAppSelector((store) => store.links);
   return (
-    <div className="w-full flex flex-col gap-3">
+    <div className="w-[80vw] sm:w-[50%] lg:w-[80%] flex flex-col gap-3">
       {links.map((singleLink) => {
         const { color, id, logoWhite, name, path } = singleLink;
         return (
