@@ -2,8 +2,11 @@ import uploadImage from "/assets/images/icon-upload-image.svg";
 
 const UploadImage = () => {
   return (
-    <section className="mb-5 flex justify-between px-5 items-center gap-5 mx-auto bg-[#fafafa] w-[85%] h-[233px]">
-      <p className="">Profile picture</p>
+    <section
+      className="mb-5 flex flex-col lg:flex-row items-start
+     lg:justify-between py-5 lg:py-0 px-5 lg:items-center gap-5 mx-auto bg-[#fafafa] w-[85%] min-h-[233px]"
+    >
+      <p>Profile picture</p>
       <label
         htmlFor="inputFile"
         className="bg-veryLightPurple w-[193px] h-[193px] flex justify-center items-center flex-col rounded-[12px] text-strongPurple font-semibold cursor-pointer"
