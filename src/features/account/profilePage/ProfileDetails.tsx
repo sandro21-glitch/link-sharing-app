@@ -12,10 +12,10 @@ const ProfileDetails = () => {
       </p>
       <UploadImage />
       <BasicDetails />
-      <div className="mt-5 border border-transparent border-t-[#d9d9d9] flex justify-end">
+      <div className="mt-5 border border-transparent border-t-[#d9d9d9] flex justify-center lg:justify-end">
         <button
           type="submit"
-          className="text-white mt-5 bg-strongPurple font-semibold capitalize w-[91px] h-[46px] rounded-[8px] hover:opacity-60 transition-opacity ease-in duration-150"
+          className="text-white mt-5 bg-strongPurple font-semibold capitalize w-[90%] lg:w-[91px] h-[46px] rounded-[8px] hover:opacity-60 transition-opacity ease-in duration-150"
         >
           Save
         </button>
