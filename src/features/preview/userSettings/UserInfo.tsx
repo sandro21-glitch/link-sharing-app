@@ -5,7 +5,7 @@ import UserName from "./UserName";
 
 const UserInfo = () => {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center w-full">
       <UserAvatar />
       <UserName />
       <UserEmail />
