@@ -56,10 +56,28 @@ export const linksSlice = createSlice({
         link.path = linkPath;
       }
     },
+    reorderLinks: (
+      state,
+      action: PayloadAction<{ draggedLinkId: string; droppedLinkId: string }>
+    ) => {
+      const { links } = state;
+      const { draggedLinkId, droppedLinkId } = action.payload;
+
+      // find the indexes of the dragged and dropped elements
+      const draggedIndex = links.findIndex((link) => link.id === draggedLinkId);
+      const droppedIndex = links.findIndex((link) => link.id === droppedLinkId);
+
+      if (draggedIndex >= 0 && droppedIndex >= 0) {
+        [links[draggedIndex], links[droppedIndex]] = [
+          links[droppedIndex],
+          links[draggedIndex],
+        ];
+      }
+    },
   },
 });
 
-export const { addNewLink, editLink, removeLink, addLinkPath } =
+export const { addNewLink, editLink, removeLink, addLinkPath, reorderLinks } =
   linksSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
