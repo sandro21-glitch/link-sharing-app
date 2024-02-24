@@ -13,6 +13,7 @@ type SingleLinkTypes = {
     color: string;
     validation: string;
     path: string;
+    index: number;
   };
   index: number;
 };
