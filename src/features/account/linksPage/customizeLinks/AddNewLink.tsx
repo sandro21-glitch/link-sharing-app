@@ -14,6 +14,7 @@ const AddNewLink = () => {
     logoWhite: LINK_SITES[0].logoWhite,
     color: LINK_SITES[0].color,
     validation: LINK_SITES[0].validation,
+    index: links.length,
   };
 
   return (
