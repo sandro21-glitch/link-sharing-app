@@ -7,6 +7,7 @@ export interface LinkTypes {
   logoWhite: string;
   color: string;
   validation: string;
+  index: number;
 }
 [];
 
@@ -17,4 +18,5 @@ export interface SingleLinkType {
   logoWhite: string;
   color: string;
   validation: string;
+  index: number;
 }
