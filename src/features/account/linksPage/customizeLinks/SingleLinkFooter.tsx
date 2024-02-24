@@ -30,9 +30,20 @@ const SingleLinkFooter = ({
 
   const handleAddLink = (e: React.FormEvent<HTMLInputElement>) => {
     const inputValue = (e.target as HTMLInputElement).value;
+    const isValidInput = isValid(inputValue);
+  
     setLinkPath(inputValue);
-    setIsValidInput(isValid(inputValue));
+    setIsValidInput(isValidInput);
+  
+    if (isValidInput) {
+      dispatch(addLinkPath({ id, linkPath: inputValue }));
+    } else {
+      // If the input is not valid or empty, clear the Redux path
+      dispatch(addLinkPath({ id, linkPath: "" }));
+    }
   };
+  
+  
 
   const handleFocus = () => {
     setBlurred(false);
@@ -56,7 +67,6 @@ const SingleLinkFooter = ({
       if (linkPath.trim() !== "") {
         dispatch(addLinkPath({ id, linkPath }));
       } else {
-        setLinkPath("");
         dispatch(addLinkPath({ id, linkPath: "" }));
       }
     }
