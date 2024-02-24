@@ -13,7 +13,6 @@ const CustomizeLinks = () => {
     if (isLinkPathsEmpty) {
       // save links to localStorage
       localStorage.setItem("links", JSON.stringify(links));
-      alert("Saved");
     }
   };
   return (
