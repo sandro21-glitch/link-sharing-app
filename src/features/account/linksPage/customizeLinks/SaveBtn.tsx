@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import { useAppSelector } from "../../../../hooks/reduxHooks";
 
 const SaveBtn = () => {
@@ -11,6 +12,7 @@ const SaveBtn = () => {
   return (
     <button
       type="submit"
+      onClick={() => areAllLinksValid && toast.success("Your changes have been successfully saved!")}
       disabled={areAllLinksValid ? false : true}
       className={`${
         !areAllLinksValid ? "cursor-not-allowed" : "cursor-pointer"
