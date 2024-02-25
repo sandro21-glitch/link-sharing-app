@@ -1,9 +1,10 @@
-
+import { useAppSelector } from "../../../hooks/reduxHooks";
 
 const UserEmail = () => {
-  return (
-    <p className="mb-10">vipsandro11@mail.ru</p>
-  )
-}
+  const {
+    userData: { email },
+  } = useAppSelector((store) => store.user);
+  return <p className="mb-10">{email ? email : ""}</p>;
+};
 
-export default UserEmail
+export default UserEmail;
