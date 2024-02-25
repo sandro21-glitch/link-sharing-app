@@ -1,7 +1,6 @@
 import Label from "../../../../ui/Label";
 import Input from "../../../../ui/Input";
 
-
 const InputName = () => {
   return (
     <div className="w-full flex flex-col lg:flex-row items-start justify-between lg:items-center">
