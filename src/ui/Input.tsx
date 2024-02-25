@@ -7,12 +7,14 @@ type InputTypes = {
 
 const Input = ({ className, id, placeholder, type }: InputTypes) => {
   return (
-    <input
-      id={id}
-      type={type}
-      placeholder={placeholder}
-      className={className}
-    />
+    <div className="w-[432px]">
+      <input
+        id={id}
+        type={type}
+        placeholder={placeholder}
+        className={className}
+      />
+    </div>
   );
 };
 
