@@ -1,3 +1,4 @@
+import Input from "../../../../ui/Input";
 import Label from "../../../../ui/Label";
 
 const BasicDetails = () => {
@@ -10,7 +11,7 @@ const BasicDetails = () => {
           name="First name*"
         />
         <div className="w-[432px]">
-          <input
+          <Input
             id="name"
             type="text"
             placeholder="Text input"
@@ -25,7 +26,7 @@ const BasicDetails = () => {
           name="Last name*"
         />
         <div className="w-[432px]">
-          <input
+          <Input
             id="lastName"
             type="text"
             placeholder="Text input"
@@ -40,7 +41,7 @@ const BasicDetails = () => {
           name="Email*"
         />
         <div className="w-[432px]">
-          <input
+          <Input
             id="email"
             type="email"
             placeholder="Text input"
