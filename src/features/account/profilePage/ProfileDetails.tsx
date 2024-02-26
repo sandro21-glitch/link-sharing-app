@@ -6,11 +6,15 @@ import { setUserDataState } from "../../user";
 
 const ProfileDetails = () => {
   const dispatch = useAppDispatch();
+  const storedUserData = localStorage.getItem("userData");
+  const initialUserData = storedUserData ? JSON.parse(storedUserData) : {};
+
   const [userData, setUserData] = useState({
-    userName: "",
-    userLastName: "",
-    email: "",
+    userName: initialUserData.userName || "",
+    userLastName: initialUserData.lastName || "",
+    email: initialUserData.email || "",
   });
+
   const handleSubmitUserData = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(
