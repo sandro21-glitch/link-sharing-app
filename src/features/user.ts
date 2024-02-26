@@ -2,6 +2,8 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { UserTypes } from "../types/userTypes";
 
 // import type { RootState } from "../store";
+const storedUserData = localStorage.getItem("userData");
+const initialUserData = storedUserData ? JSON.parse(storedUserData) : {};
 
 export interface UserState {
   userData: {
@@ -12,9 +14,9 @@ export interface UserState {
 }
 const initialState: UserState = {
   userData: {
-    userName: "",
-    lastName: "",
-    email: "",
+    userName: initialUserData.userName || "",
+    lastName: initialUserData.lastName || "",
+    email: initialUserData.email || "",
   },
 };
 export const userSlice = createSlice({
@@ -27,6 +29,7 @@ export const userSlice = createSlice({
       userData.userName = data.userName;
       userData.lastName = data.lastName;
       userData.email = data.email;
+      localStorage.setItem("userData", JSON.stringify(userData));
     },
   },
 });
