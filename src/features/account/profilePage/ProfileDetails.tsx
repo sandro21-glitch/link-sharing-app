@@ -3,6 +3,7 @@ import BasicDetails from "./profileDetails/BasicDetails";
 import UploadImage from "./profileDetails/UploadImage";
 import { useAppDispatch } from "../../../hooks/reduxHooks";
 import { setUserDataState } from "../../user";
+import toast from "react-hot-toast";
 
 const ProfileDetails = () => {
   const dispatch = useAppDispatch();
@@ -26,6 +27,7 @@ const ProfileDetails = () => {
         },
       })
     );
+    toast.success("Your changes have been successfully saved!");
   };
 
   return (
