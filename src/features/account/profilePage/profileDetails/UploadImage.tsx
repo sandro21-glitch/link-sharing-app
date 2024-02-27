@@ -1,6 +1,17 @@
+import { useAppDispatch } from "../../../../hooks/reduxHooks";
+import { setUserImage } from "../../../user";
 import uploadImage from "/assets/images/icon-upload-image.svg";
 
 const UploadImage = () => {
+  const dispatch = useAppDispatch();
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      dispatch(setUserImage(imageUrl));
+    }
+  };
   return (
     <section
       className="mb-5 flex flex-col lg:flex-row items-start
@@ -16,6 +27,7 @@ const UploadImage = () => {
           type="file"
           accept="image/png, image/jpeg"
           className="hidden"
+          onChange={handleFileChange}
         />
         <img src={uploadImage} />+ Upload Image
       </label>
