@@ -4,7 +4,8 @@ import { UserTypes } from "../types/userTypes";
 // import type { RootState } from "../store";
 const storedUserData = localStorage.getItem("userData");
 const initialUserData = storedUserData ? JSON.parse(storedUserData) : {};
-
+const storedUserImage = localStorage.getItem("userImage");
+const initialUserImage = storedUserImage || "";
 export interface UserState {
   userData: {
     userName: string;
@@ -19,19 +20,20 @@ const initialState: UserState = {
     lastName: initialUserData.lastName || "",
     email: initialUserData.email || "",
   },
-  image: "",
+  image: initialUserImage || "",
 };
 export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
     setUserDataState: (state, action: PayloadAction<UserTypes>) => {
-      const { userData } = state;
+      const { userData, image } = state;
       const { data } = action.payload;
       userData.userName = data.userName;
       userData.lastName = data.lastName;
       userData.email = data.email;
       localStorage.setItem("userData", JSON.stringify(userData));
+      localStorage.setItem("userImage", image);
     },
     setUserImage: (state, action: PayloadAction<string>) => {
       state.image = action.payload;
