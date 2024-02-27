@@ -22,6 +22,7 @@ const AddNewLink = () => {
       type="button"
       onClick={() => dispatch(addNewLink(firstLink))}
       disabled={isLinksFull}
+      title={isLinksFull ? "Maximum links reached" : "Add new link"}
       className={`
       ${
         isLinksFull
