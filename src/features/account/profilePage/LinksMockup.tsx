@@ -11,7 +11,7 @@ const LinksMockup = () => {
           alt="phoneMockup"
           className="min-w-[307px] h-auto object-contain "
         />
-        {image && (
+        {image !== '' && (
           <div className="absolute mx-auto top-[63.5px] w-[96px] h-[96px] overflow-hidden left-0 right-0 rounded-full border-4 border-strongPurple">
             <img src={image} alt="user image" />
           </div>
