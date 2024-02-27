@@ -11,6 +11,7 @@ export interface UserState {
     lastName: string;
     email: string;
   };
+  image: string;
 }
 const initialState: UserState = {
   userData: {
@@ -18,6 +19,7 @@ const initialState: UserState = {
     lastName: initialUserData.lastName || "",
     email: initialUserData.email || "",
   },
+  image: "",
 };
 export const userSlice = createSlice({
   name: "user",
@@ -31,10 +33,13 @@ export const userSlice = createSlice({
       userData.email = data.email;
       localStorage.setItem("userData", JSON.stringify(userData));
     },
+    setUserImage: (state, action: PayloadAction<string>) => {
+      state.image = action.payload;
+    },
   },
 });
 
-export const { setUserDataState } = userSlice.actions;
+export const { setUserDataState, setUserImage } = userSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 // export const selectCount = (state: RootState) => state.counter.value;
