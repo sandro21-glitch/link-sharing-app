@@ -18,5 +18,5 @@ export interface SingleLinkType {
   logoWhite: string;
   color: string;
   validation: string;
-  index: number;
+  index?: number;
 }
