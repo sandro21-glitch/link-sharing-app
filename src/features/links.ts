@@ -23,6 +23,7 @@ export const linksSlice = createSlice({
           id: uuidv4(),
           path: "",
           ...action.payload,
+          index: state.links.length - 1,
         };
         state.links.push(newLink);
       }
